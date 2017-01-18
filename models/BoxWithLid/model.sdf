@@ -1,8 +1,8 @@
 <?xml version='1.0'?>
 <sdf version='1.6'>
   <model name='BoxWithLid'>
-    <link name='link_0'>
-      <pose frame=''>0.043311 -0.051089 -0.129787 0 -0 0</pose>
+    <link name='box_link'>
+      <pose frame=''>0.043311 0.0 -0.129787 0 -0 0</pose>
       <inertial>
         <mass>0.0247162</mass>
         <inertia>
@@ -98,8 +98,8 @@
         </surface>
       </collision>
     </link>
-    <link name='link_1'>
-      <pose frame=''>-0.043311 0.051089 0.129788 0 -0 0</pose>
+    <link name='lid_link'>
+      <pose frame=''>-0.05 0.0 0.129788 0 -0 0</pose>
       <inertial>
         <mass>0.00934106</mass>
         <inertia>
@@ -119,14 +119,14 @@
         <pose frame=''>0 0 0 0 -0 0</pose>
         <geometry>
           <box>
-            <size>0.031833 0.885593 0.331334</size>
+            <size>0.031833 0.685593 0.331334</size>
           </box>
         </geometry>
         <material>
           <lighting>1</lighting>
           <script>
             <uri>file://media/materials/scripts/gazebo.material</uri>
-            <name>Gazebo/Grey</name>
+            <name>Gazebo/Red</name>
           </script>
           <ambient>0.3 0.3 0.3 1</ambient>
           <diffuse>0.7 0.7 0.7 1</diffuse>
@@ -145,7 +145,7 @@
         <pose frame=''>0 0 0 0 -0 0</pose>
         <geometry>
           <box>
-            <size>0.031833 0.885593 0.331334</size>
+            <size>0.031833 0.685593 0.331334</size>
           </box>
         </geometry>
         <surface>
@@ -196,15 +196,15 @@
       </collision>
     </link>
     <joint name='left_hinge_joint' type='revolute'>
-      <parent>link_0</parent>
-      <child>link_1</child>
+      <parent>box_link</parent>
+      <child>lid_link</child>
       <pose frame=''>0 0 -0.16 0 -0 0</pose>
       <axis>
         <xyz>0 1 0</xyz>
         <use_parent_model_frame>0</use_parent_model_frame>
         <limit>
-          <lower>-1.79769e+308</lower>
-          <upper>1.79769e+308</upper>
+          <lower>0</lower>
+          <upper>1.57</upper>
           <effort>-1</effort>
           <velocity>-1</velocity>
         </limit>
